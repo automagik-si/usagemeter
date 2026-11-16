@@ -5,13 +5,13 @@ publishes a small summary to that machine's herdr-core. It is shared by two Auto
 Automagik Herdr on the desktop, and the Automagik Pocket phone app through its Pocket Link mod,
 which install it with `install.sh` and run it on the machines they
 reach. Rows follow `ae/1` (agent event envelope, revision 3, owned by automagik-herdr). Design:
-[RFC 0005](https://github.com/automagik-dev/automagik-pocket/blob/dev/docs/rfcs/0005-usage-meter.md).
+[RFC 0005](https://github.com/automagik-si/automagik-pocket/blob/dev/docs/rfcs/0005-usage-meter.md).
 
 It runs once and exits. It has no daemon, no listener and makes no network calls; the only process
 it talks to is the local `hc`.
 
 This project used to live in the `meter/` folder of
-[automagik-pocket](https://github.com/automagik-dev/automagik-pocket), where it was built as
+[automagik-pocket](https://github.com/automagik-si/automagik-pocket), where it was built as
 `automagik-meter`; it moved here with its history. Its store, summary doc and environment
 variables did not change, so an existing install keeps its data. Since 0.5.0 the store lives in
 `~/.automagik/meter/` and the first `sync` moves it there (see [What it stores](#what-it-stores)).
@@ -27,17 +27,17 @@ to the local herdr-core. The binary itself opens no network connection.
 ## Install
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/automagik-dev/usagemeter/dev/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/automagik-si/usagemeter/dev/install.sh | sh
 ```
 
 A pinned version (`0.3.0` or `v0.3.0`, as an argument or `USAGEMETER_VERSION`):
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/automagik-dev/usagemeter/dev/install.sh | sh -s -- 0.3.0
+curl -fsSL https://raw.githubusercontent.com/automagik-si/usagemeter/dev/install.sh | sh -s -- 0.3.0
 ```
 
 Each release also carries its own `install.sh`
-(`https://github.com/automagik-dev/usagemeter/releases/download/v0.3.0/install.sh`).
+(`https://github.com/automagik-si/usagemeter/releases/download/v0.3.0/install.sh`).
 
 The installer is POSIX `sh` and needs only `curl` and `sha256sum` (or `shasum -a 256`), no sudo.
 It picks the release binary for this OS and CPU, checks it against the release's `SHA256SUMS`,
@@ -52,8 +52,8 @@ Each release carries `usagemeter-darwin-arm64`, `usagemeter-darwin-x86_64`,
 hand:
 
 ```sh
-curl -fLO https://github.com/automagik-dev/usagemeter/releases/latest/download/usagemeter-linux-x86_64
-curl -fLO https://github.com/automagik-dev/usagemeter/releases/latest/download/SHA256SUMS
+curl -fLO https://github.com/automagik-si/usagemeter/releases/latest/download/usagemeter-linux-x86_64
+curl -fLO https://github.com/automagik-si/usagemeter/releases/latest/download/SHA256SUMS
 sha256sum --check --ignore-missing SHA256SUMS
 install -m 755 usagemeter-linux-x86_64 ~/.local/bin/usagemeter
 ```
